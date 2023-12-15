@@ -11,13 +11,12 @@ if [ ! -d GadgetDeck-DL ]; then
 else
   cd GadgetDeck-DL
 fi
+make # This runs the setup make target
 
-python -m venv venv
-make
+# INSTALL_DIR="/usr/share/gadget-deck"
+# sudo cp -r GadgetDeck ${INSTALL_DIR}/
+chmod +x GadgetDeck/GadgetDeck
+steamos-add-to-steam $(pwd)/GadgetDeck/GadgetDeck
 
-# cp -r GadgetDeck /usr/share/gadget-deck/
-mkdir -p program
-chmod +x program/GadgetDeck
-echo running steamos-add-to-steam $(pwd)/program/GadgetDeck:
-steamos-add-to-steam $(pwd)/program/GadgetDeck
-
+mkdir -p /home/deck/.steam/steam/controller_config
+cp util/game_actions_480.vdf /home/deck/.steam/steam/controller_config/
