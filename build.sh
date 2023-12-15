@@ -1,28 +1,23 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -e
 set -x
 
-if [ ! "$EUID" -eq 0 ]; then
-  echo "Run as root!"
-  exit 1
-fi
-
-if [ ! -d GadgetDeck ]; then
-  mkdir GadgetDeck
-  cd GadgetDeck
+if [ ! -d GadgetDeck-DL ]; then
+  mkdir GadgetDeck-DL
+  cd GadgetDeck-DL
   wget https://github.com/Frederic98/GadgetDeck/releases/download/V0.1/GadgetDeck.zip
   unzip GadgetDeck.zip
 else
-  cd GadgetDeck
+  cd GadgetDeck-DL
 fi
 
 python -m venv venv
 make
-make install
 
 # cp -r GadgetDeck /usr/share/gadget-deck/
 mkdir -p program
 chmod +x program/GadgetDeck
-sudo -u deck bash -c "steamos-add-to-steam $(pwd)/program/GadgetDeck"
+echo running steamos-add-to-steam $(pwd)/program/GadgetDeck:
+steamos-add-to-steam $(pwd)/program/GadgetDeck
 
