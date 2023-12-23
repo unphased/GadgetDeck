@@ -7,9 +7,9 @@ After=gadget-deck-base.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-WorkingDirectory=/usr/share/gadget-deck
-ExecStart=/usr/share/gadget-deck/gadget-deck-manager.py enable shell
-ExecStop=/usr/share/gadget-deck/gadget-deck-manager.py disable shell
+WorkingDirectory=/home/deck/GadgetDeck-DL
+ExecStart=venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py enable shell
+ExecStop=venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py disable shell
 
 [Install]
 WantedBy=multi-user.target

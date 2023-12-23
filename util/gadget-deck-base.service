@@ -5,10 +5,10 @@ Description=Steam Deck Gadget base
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-WorkingDirectory=/usr/share/gadget-deck
+WorkingDirectory=/home/deck/GadgetDeck-DL
 ExecStartPre=modprobe libcomposite
-ExecStart=/usr/share/gadget-deck/gadget-deck-manager.py setup
-ExecStop=/usr/share/gadget-deck/gadget-deck-manager.py destroy
+ExecStart=venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py setup
+ExecStop=venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py destroy
 
 [Install]
 WantedBy=multi-user.target

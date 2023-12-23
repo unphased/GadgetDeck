@@ -31,4 +31,9 @@ sudo cp util/99-gadget-deck.rules /etc/polkit-1/rules.d/
 echo Running: cp "${0%/*}"/util/gadget-deck*.service util/
 cp "${0%/*}"/util/gadget-deck*.service util/
 
+# not needed
+rm util/gadget-deck@mtp.service
+
+sudo cp util/gadget-deck*.service /etc/systemd/system/
+sudo systemctl daemon-reload
 
