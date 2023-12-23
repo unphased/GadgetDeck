@@ -7,8 +7,8 @@ Type=oneshot
 RemainAfterExit=yes
 WorkingDirectory=/home/deck/GadgetDeck-DL
 ExecStartPre=modprobe libcomposite
-ExecStart=venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py setup
-ExecStop=venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py destroy
+ExecStart=/home/deck/GadgetDeck-DL/venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py setup
+ExecStop=/home/deck/GadgetDeck-DL/venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py destroy
 
 [Install]
 WantedBy=multi-user.target

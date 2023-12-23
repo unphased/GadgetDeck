@@ -8,8 +8,8 @@ After=gadget-deck-base.service
 Type=oneshot
 RemainAfterExit=yes
 WorkingDirectory=/home/deck/GadgetDeck-DL
-ExecStart=venv/bin/python gadget-deck-manager.py enable %i
-ExecStop=venv/bin/python gadget-deck-manager.py disable %i
+ExecStart=/home/deck/GadgetDeck-DL/venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py enable %i
+ExecStop=/home/deck/GadgetDeck-DL/venv/bin/python /home/deck/GadgetDeck-DL/gadget-deck-manager.py disable %i
 
 
 [Install]
